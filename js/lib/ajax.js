@@ -1,7 +1,7 @@
+var $ = $||{};
+
 (function($,undef){
-    if($==undef){
-        $ = {};
-    }
+
     var OBJ="object",STR="string";
 
     var ajax=function(options){

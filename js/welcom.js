@@ -2,9 +2,25 @@
 // L_welcom class
 //
 var L_welcom = function(){};
+L_welcom.getMapLayer = function(){
+    return mapLayer.scene();
+}
+L_welcom.prototype.onMap = function()
+{
+
+    cc.log('L_welcom ccb file has been loaded!');
+    //预加载所需资源。然后启动场景类容
+    cc.Loader.preload(g_resources, function () {
+        var scene = L_welcom.getMapLayer();
+        cc.Director.getInstance().replaceScene(scene);
+    }, this);
+
+
+};
+
 
 // Create callback for button
-L_welcom.prototype.onStart = function()
+L_welcom.prototype.onStartgame = function()
 {
 
     cc.log('L_welcom ccb file has been loaded!');

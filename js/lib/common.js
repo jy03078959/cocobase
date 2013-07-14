@@ -1,10 +1,10 @@
 /**
  * 场景创建快捷代码
  */
+var $ = $||{};
+
 (function($,undef){
-    if($==undef){
-        $ = {};
-    }
+
 
     var isHtml5 = true;
     if (typeof location != 'undefined') {
@@ -100,6 +100,5 @@
  * 基本工具类
  */
 (function($,undef){
-
 
 })($);

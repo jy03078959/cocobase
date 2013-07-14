@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="20" height="20" tilewidth="100" tileheight="50">
+ <tileset firstgid="1" name="wetlands-ipad" tilewidth="100" tileheight="100" spacing="1" margin="1">
+  <tileoffset x="0" y="15"/>
+  <image source="tile_iso_offset.png" width="256" height="256"/>
+  <tile id="0">
+   <properties>
+    <property name="altitude" value="0"/>
+    <property name="isWater" value="0"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="altitude" value="0"/>
+    <property name="isWater" value="0"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="altitude" value="2.5"/>
+    <property name="isWater" value="0"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="altitude" value="-1"/>
+    <property name="isWater" value="1"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="baseLayer" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYmBgYBrFo3gUj+JRPIpJxADRBwMh
+  </data>
+ </layer>
+ <layer name="warter" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYaAuYBlC5rEgYXLtJ8c8bJia7sNlNjGAGuGBroaY8MClllbmkRtGgzl9kxvnA2EeNczFFZeU2kFNP8PMG64AAANMASk=
+  </data>
+ </layer>
+ <layer name="luxian" width="20" height="20" opacity="0.77">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAdYKIAk2MePnXkuJUSQAvz0M2l1E3E2klN84hRS6zfSDGP2u6jhXnIcYxLnhrpmVrmkZp/KTGXUkAtc0bNQwUAROUA7w==
+  </data>
+ </layer>
+ <layer name="anbian" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzNlMEKwDAIQx37/3/eYRcJSdS2hwY8tOIjFWvEr/dQROLtasp7UjgeenU85OZY5alczjMe1it/TIqnait25Q9r0Bebl3xmfiY85rHqP6rDc+F4amZY35VW/8cpXqUbeW5fubvOnmOeOjti8i7mYVc7vA/VBQEd
+  </data>
+ </layer>
+ <objectgroup name="role" width="20" height="20">
+  <object name="hero" x="702" y="902" width="44" height="46"/>
+ </objectgroup>
+</map>
