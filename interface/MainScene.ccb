@@ -196,9 +196,11 @@
 						<key>type</key>
 						<string>CCBFile</string>
 						<key>value</key>
-						<string>linchong.ccb</string>
+						<string>interface/linchong.ccb</string>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>
@@ -291,7 +293,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>clickme.png</string>
+									<string>images/clickme.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -302,7 +304,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>clickme-down.png</string>
+									<string>images/clickme-down.png</string>
 								</array>
 							</dict>
 							<dict>

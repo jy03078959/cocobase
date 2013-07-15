@@ -213,7 +213,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>bg/welcom.jpg</string>
+							<string>images/bg/welcom.jpg</string>
 						</array>
 					</dict>
 					<dict>
@@ -464,7 +464,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>frame/btn_1.png</string>
+									<string>images/frame/btn_1.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -490,8 +490,6 @@
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 					<dict>
 						<key>baseClass</key>
@@ -579,7 +577,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>frame/btn_1.png</string>
+									<string>images/frame/btn_1.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -692,7 +690,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>frame/btn_1.png</string>
+									<string>images/frame/btn_1.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -949,7 +947,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>frame/btn_1.png</string>
+									<string>images/frame/btn_1.png</string>
 								</array>
 							</dict>
 							<dict>

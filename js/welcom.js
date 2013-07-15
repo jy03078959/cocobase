@@ -24,7 +24,7 @@ L_welcom.prototype.onStartgame = function()
 {
 
     cc.log('L_welcom ccb file has been loaded!');
-    var node = cc.BuilderReader.load("mainScene.ccbi")
+    var node = cc.BuilderReader.load("interface/mainScene.ccbi")
     var scene = cc.Scene.create();
     scene.addChild(node);
     cc.Director.getInstance().replaceScene(scene);
@@ -34,7 +34,7 @@ L_welcom.prototype.onList = function()
 {
 
     cc.log('L_welcom ccb file has been loaded!');
-    var node = cc.BuilderReader.load("layout.ccbi")
+    var node = cc.BuilderReader.load("interface/layout.ccbi")
     var scene = cc.Scene.create();
     scene.addChild(node);
     cc.Director.getInstance().replaceScene(scene);

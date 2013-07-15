@@ -438,7 +438,7 @@
 										<key>value</key>
 										<array>
 											<string></string>
-											<string>button/174-1.png</string>
+											<string>images/button/174-1.png</string>
 										</array>
 									</dict>
 								</array>
@@ -510,7 +510,7 @@
 										<key>value</key>
 										<array>
 											<string></string>
-											<string>button/174-2.png</string>
+											<string>images/button/174-2.png</string>
 										</array>
 									</dict>
 								</array>
@@ -582,7 +582,7 @@
 										<key>value</key>
 										<array>
 											<string></string>
-											<string>button/174-3.png</string>
+											<string>images/button/174-3.png</string>
 										</array>
 									</dict>
 								</array>

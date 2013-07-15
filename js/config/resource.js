@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 ;(function(){
-    var dirImg = "";
+    var dirImg = "images/";
     /**
      * 资源
      * @type {Object}

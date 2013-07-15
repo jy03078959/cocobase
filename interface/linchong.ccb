@@ -229,7 +229,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>role/lc-GT.png</string>
+							<string>images/role/lc-GT.png</string>
 						</array>
 					</dict>
 				</array>
@@ -342,7 +342,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>role/lc-GS.png</string>
+							<string>images/role/lc-GS.png</string>
 						</array>
 					</dict>
 				</array>
@@ -485,10 +485,12 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>role/lc-GJ.png</string>
+							<string>images/role/lc-GJ.png</string>
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
