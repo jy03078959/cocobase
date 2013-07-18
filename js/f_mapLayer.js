@@ -10,7 +10,7 @@ var mapLayer = $.scene(function(){
     var hero = null;//行走英雄
     var map = null;//英雄地图
     return {
-        vaspeed:500,//平均移动速度 s/point
+        vaspeed:100,//平均移动速度 s/point
         touchPos:cc.p(0,0),
         animCache:null,
         drunAction:null,//行走动画
@@ -35,7 +35,7 @@ var mapLayer = $.scene(function(){
         },
         initLuXian:function(){
             var layer = map.getLayer("luxian");
-            var s = layer.getPositionAt(window.cpp||cc.p(1, 0));
+            var s = layer.getPositionAt(cc.p(1, 0));
             hero.setPosition(s);
         },
         setHeroPos:function(p){
@@ -48,10 +48,16 @@ var mapLayer = $.scene(function(){
          */
         initHero:function (fileName) {
             var me = this;
+            //得到图片缓存实例
+            var frameCache = cc.SpriteFrameCache.getInstance()
+            frameCache.addSpriteFrames(R.ccrole_plist);
 
             me.animCache= cc.AnimationCache.getInstance();
             //添加plist文件里面的动画信息到缓存中
             me.animCache.addAnimations(R.caocao_plist);
+
+
+
 
             var group = map.getObjectGroup("role");
             var objects = group.getObjects();
@@ -89,19 +95,21 @@ var mapLayer = $.scene(function(){
         run:function(position){
             var me = this;
             //计算平均移动速度
-            me.touchPos = position;
-            var currentPos = me.getPosition();
+            var layer = map.getLayer("luxian");
+            var s = layer.getPositionAt(cc.p(1, 1));
+            me.touchPos = position ;
+            var currentPos = hero.getPosition();
             var length = cc.pDistance(currentPos,position);
 
             //创建元素运动，并且加入运动完回调方法
             var callback = cc.CallFunc.create(me.stopRun, me);
             var action = cc.Sequence.create(cc.MoveTo.create(length/me.vaspeed, position),callback)
-            me.runAction(action);
-            me.playRun(position);
+            hero.runAction(action);
+            this.playRun(position);
         },
         playRun:function (position) {
             var me = this;
-            var currentPos = me.getPosition();
+            var currentPos = hero.getPosition();
             //取得方向向量
             var forwar = cc.pSub(position,currentPos);
 
@@ -121,12 +129,12 @@ var mapLayer = $.scene(function(){
 
             var action2 = cc.Animate.create(animation2);
             me.drunAction = cc.RepeatForever.create(cc.Sequence.create(action2));
-            this.runAction(me.drunAction);
+            hero.runAction(me.drunAction);
         },
         //停止元素运动
         stopRun:function(){
             var me = this;
-            this.stopAction(me.drunAction);
+            hero.stopAction(me.drunAction);
         },
         initController:function(){
 
@@ -146,6 +154,13 @@ var mapLayer = $.scene(function(){
                 node.setPosition(diff);
             }
 
+        },
+        onTouchesBegan:function(touches,event){
+            var touch = touches[0];
+            if(touches.length==1){
+                this.run(map.convertTouchToNodeSpace(touch));
+               cc.log(map.convertTouchToNodeSpace(touch));
+            }
         },
         /**
          * 双手指放大缩小页面
