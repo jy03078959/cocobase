@@ -10,7 +10,7 @@ L_welcom.prototype.onMap = function()
 
     cc.log('L_welcom ccb file has been loaded!');
     //预加载所需资源。然后启动场景类容
-    cc.LoaderScene.preload(g_resources, function () {
+    cc.Loader.preload(g_resources, function () {
         var scene = L_welcom.getMapLayer();
         cc.Director.getInstance().replaceScene(scene);
     }, this);

@@ -8,19 +8,21 @@
 var mapLayer = $.scene(function(){
     var TAG_TILE_MAP = 1;
     var hero = null;//行走英雄
+    var heroWarp = null;
     var map = null;//英雄地图
+    var animationKey = "";
     return {
         vaspeed:100,//平均移动速度 s/point
         touchPos:cc.p(0,0),
         animCache:null,
-        drunAction:null,//行走动画
-
+        _touchMoved:false,
         init:function(){
             this._super();
             this.setTouchEnabled(true);
             this.initMap();
             this.initHero();
             this.initLuXian();
+            this.initController();
             return true;
         },
         initMap:function(){
@@ -29,54 +31,42 @@ var mapLayer = $.scene(function(){
             this.addChild(map, 0, TAG_TILE_MAP);
 
             map.setAnchorPoint(cc.p(0.5, 0.5));
-            map.setPosition(cc.p(this.getWinSize().width/2, this.getWinSize.height/2));
+            map.setPosition(cc.p(this.getWinSize().width/2, this.getWinSize().height/2));
             //map.setScale(.3);
+
 
         },
         initLuXian:function(){
             var layer = map.getLayer("luxian");
             var s = layer.getPositionAt(cc.p(1, 0));
-            hero.setPosition(s);
+            heroWarp.setPosition(s);
         },
         setHeroPos:function(p){
             var layer = map.getLayer("luxian");
             var s = layer.getPositionAt(p);
-            hero.setPosition(s);
+            heroWarp.setPosition(s);
         },
         /**
          * 初始化英雄
          */
         initHero:function (fileName) {
             var me = this;
-            //得到图片缓存实例
-            var frameCache = cc.SpriteFrameCache.getInstance()
-            frameCache.addSpriteFrames(R.ccrole_plist);
-
-            me.animCache= cc.AnimationCache.getInstance();
-            //添加plist文件里面的动画信息到缓存中
-            me.animCache.addAnimations(R.caocao_plist);
-
-
 
 
             var group = map.getObjectGroup("role");
             var objects = group.getObjects();
 
-            var frameCache = cc.SpriteFrameCache.getInstance();
-            frameCache.addSpriteFrames(R.ccrole_plist);
 
             for (var i = 0; i < objects.length; i++) {
                 var dict = objects[i];
                 if (!dict)
                     break;
 
-                hero =this.createHero(dict);
+                heroWarp =this.createHero(dict);
+               // this.runAction(cc.Follow.create(heroWarp, map.getBoundingBox()));
 
-                map.addChild(hero,2);
-
+                map.addChild(heroWarp,2);
             }
-
-            //this.run();
         },
         /**
          * 创建一个英雄
@@ -84,32 +74,36 @@ var mapLayer = $.scene(function(){
          * @returns {null}
          */
         createHero:function(dict){
-
-            hero = cc.Sprite.createWithSpriteFrameName("33-1.png");
-            hero.setAnchorPoint(cc.p(0,0));
-            hero.setPosition(cc.p(dict.x,dict.y));
+            heroWarp = cc.LayerColor.create(cc.c4b(255, 0, 0, 128), 200, 200);
+            hero = cc.BuilderReader.load("interface/role/caocao.ccbi");
             var heroSize = hero.getBoundingBox();
-            hero.setScale(dict.width/heroSize.width);
-            return hero;
+
+            heroWarp.setAnchorPoint(cc.p(0,0));
+            heroWarp.setScale(dict.width/heroSize.width);
+            heroWarp.setContentSize(cc.size(heroSize.width,heroSize.height));
+
+            heroWarp.addChild(hero);
+
+            return heroWarp;
         },
         run:function(position){
             var me = this;
             //计算平均移动速度
-            var layer = map.getLayer("luxian");
-            var s = layer.getPositionAt(cc.p(1, 1));
             me.touchPos = position ;
-            var currentPos = hero.getPosition();
+            var currentPos = heroWarp.getPosition();
             var length = cc.pDistance(currentPos,position);
 
             //创建元素运动，并且加入运动完回调方法
             var callback = cc.CallFunc.create(me.stopRun, me);
             var action = cc.Sequence.create(cc.MoveTo.create(length/me.vaspeed, position),callback)
-            hero.runAction(action);
             this.playRun(position);
+
+            heroWarp.runAction(action);
         },
         playRun:function (position) {
             var me = this;
-            var currentPos = hero.getPosition();
+            //this.stopRun();
+            var currentPos = heroWarp.getPosition();
             //取得方向向量
             var forwar = cc.pSub(position,currentPos);
 
@@ -120,27 +114,32 @@ var mapLayer = $.scene(function(){
 
             //console.log(position,currentPos,forwar,singer);
             //从缓存中拿出动画元素
-            var animation2 = me.animCache.getAnimation("caocao_rightrun");
-            if(singer.x<0){
-                animation2 = me.animCache.getAnimation("caocao_leftrun");
-            }else if(singer.x>0){
-                animation2 = me.animCache.getAnimation("caocao_rightrun");
+            animationKey = "down";
+            if(singer.x>=0&&singer.y>0){
+                animationKey = "up";
+            }else if(singer.x<0&&singer.y>=0){
+                animationKey = "left";
+            }else if(singer.x<=0&&singer.y<0){
+                animationKey = "down";
+            }else if(singer.x>0&&singer.y<=0){
+                animationKey = "right";
             }
+            hero.animationManager.runAnimationsForSequenceNamed("run_"+animationKey);
 
-            var action2 = cc.Animate.create(animation2);
-            me.drunAction = cc.RepeatForever.create(cc.Sequence.create(action2));
-            hero.runAction(me.drunAction);
         },
         //停止元素运动
         stopRun:function(){
             var me = this;
-            hero.stopAction(me.drunAction);
+            hero.animationManager.runAnimationsForSequenceNamed("stand_"+animationKey);
+
         },
         initController:function(){
-
+            cc.log('L_welcom ccb file has been loaded!');
+            var node = cc.BuilderReader.load("interface/control.ccbi")
+            this.addChild(node);
         },
         onTouchesMoved:function (touches, event) {
-
+            this._touchMoved = true;
             var touch = touches[0];
             if(touches.length>1){
                 this.onZoom(touches,event);
@@ -155,12 +154,44 @@ var mapLayer = $.scene(function(){
             }
 
         },
-        onTouchesBegan:function(touches,event){
-            var touch = touches[0];
-            if(touches.length==1){
-                this.run(map.convertTouchToNodeSpace(touch));
-               cc.log(map.convertTouchToNodeSpace(touch));
+
+        onTouchesEnded:function(touches,event){
+            if(!this._touchMoved){
+                var touch = touches[0];
+                if(touches.length==1){
+                    //转换为map场景的坐标系
+                    this.run(map.convertTouchToNodeSpace(touch));
+                    var pos = map.convertTouchToNodeSpace(touch);
+                    this.convertPosToPoint(pos);
+                }
+
             }
+
+              this._touchMoved = false;
+        },
+        onTouchesBegan:function(touches,event){
+            this._touchMoved = false;
+            return true;
+        },
+        convertPosToPoint:function(pos){
+            var mapsize = map.getBoundingBox();
+            pos.x = mapsize.width/2 - pos.x;
+            pos.y =mapsize.height - pos.y;
+            var w = map.getTileSize().width;
+            var h = map.getTileSize().height;
+            var y  =parseInt((pos.x*h+pos.y*w)/(w*h));
+            var x  = parseInt((pos.y*w-pos.x*h)/(w*h));
+            x<=0?x=0:x;
+            y<=0?y=0:y;
+            cc.log(x+"x,"+y+"y");
+            var p = cc.p(Math.abs(x),Math.abs(y));
+
+            var layer = map.getLayer("warter");
+            var selectTile = layer.getTileAt(p);
+            if(selectTile){
+                selectTile.setScale(.5);
+            }
+
         },
         /**
          * 双手指放大缩小页面

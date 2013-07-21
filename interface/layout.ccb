@@ -5,7 +5,7 @@
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
-	<integer>2</integer>
+	<integer>0</integer>
 	<key>currentSequenceId</key>
 	<integer>0</integer>
 	<key>fileType</key>
@@ -89,7 +89,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>bg/welcom.jpg</string>
+							<string>images/bg/welcom.jpg</string>
 						</array>
 					</dict>
 					<dict>
@@ -381,9 +381,9 @@
 								<key>displayName</key>
 								<string>CCSprite</string>
 								<key>memberVarAssignmentName</key>
-								<string></string>
+								<string>fu</string>
 								<key>memberVarAssignmentType</key>
-								<integer>0</integer>
+								<integer>2</integer>
 								<key>properties</key>
 								<array>
 									<dict>
@@ -442,6 +442,8 @@
 										</array>
 									</dict>
 								</array>
+								<key>selected</key>
+								<true/>
 							</dict>
 							<dict>
 								<key>baseClass</key>

@@ -5,7 +5,7 @@
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
-	<integer>0</integer>
+	<integer>2</integer>
 	<key>currentSequenceId</key>
 	<integer>0</integer>
 	<key>fileType</key>
@@ -22,184 +22,6 @@
 		<string>CCLayer</string>
 		<key>children</key>
 		<array>
-			<dict>
-				<key>baseClass</key>
-				<string>CCLayerGradient</string>
-				<key>children</key>
-				<array/>
-				<key>customClass</key>
-				<string></string>
-				<key>displayName</key>
-				<string>CCLayerGradient</string>
-				<key>memberVarAssignmentName</key>
-				<string></string>
-				<key>memberVarAssignmentType</key>
-				<integer>0</integer>
-				<key>properties</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>position</string>
-						<key>type</key>
-						<string>Position</string>
-						<key>value</key>
-						<array>
-							<real>50</real>
-							<real>50</real>
-							<integer>4</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>contentSize</string>
-						<key>type</key>
-						<string>Size</string>
-						<key>value</key>
-						<array>
-							<real>100</real>
-							<real>100</real>
-							<integer>1</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>anchorPoint</string>
-						<key>type</key>
-						<string>Point</string>
-						<key>value</key>
-						<array>
-							<real>0.5</real>
-							<real>0.5</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>scale</string>
-						<key>type</key>
-						<string>ScaleLock</string>
-						<key>value</key>
-						<array>
-							<real>1</real>
-							<real>1</real>
-							<false/>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>ignoreAnchorPointForPosition</string>
-						<key>type</key>
-						<string>Check</string>
-						<key>value</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>touchEnabled</string>
-						<key>platform</key>
-						<string>iOS</string>
-						<key>type</key>
-						<string>Check</string>
-						<key>value</key>
-						<true/>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>mouseEnabled</string>
-						<key>platform</key>
-						<string>Mac</string>
-						<key>type</key>
-						<string>Check</string>
-						<key>value</key>
-						<true/>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>startColor</string>
-						<key>type</key>
-						<string>Color3</string>
-						<key>value</key>
-						<array>
-							<integer>19</integer>
-							<integer>0</integer>
-							<integer>255</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>endColor</string>
-						<key>type</key>
-						<string>Color3</string>
-						<key>value</key>
-						<array>
-							<integer>255</integer>
-							<integer>33</integer>
-							<integer>249</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>vector</string>
-						<key>type</key>
-						<string>Point</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>-1</real>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>baseClass</key>
-				<string>CCBFile</string>
-				<key>children</key>
-				<array/>
-				<key>customClass</key>
-				<string></string>
-				<key>displayName</key>
-				<string>CCBFile</string>
-				<key>memberVarAssignmentName</key>
-				<string>linchong</string>
-				<key>memberVarAssignmentType</key>
-				<integer>1</integer>
-				<key>properties</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>position</string>
-						<key>type</key>
-						<string>Position</string>
-						<key>value</key>
-						<array>
-							<real>50</real>
-							<real>50</real>
-							<integer>4</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>scale</string>
-						<key>type</key>
-						<string>ScaleLock</string>
-						<key>value</key>
-						<array>
-							<real>0.5</real>
-							<real>0.5</real>
-							<false/>
-							<integer>1</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>ccbFile</string>
-						<key>type</key>
-						<string>CCBFile</string>
-						<key>value</key>
-						<string>interface/linchong.ccb</string>
-					</dict>
-				</array>
-			</dict>
 			<dict>
 				<key>baseClass</key>
 				<string>CCMenu</string>
@@ -227,8 +49,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>50</real>
-									<real>50</real>
+									<real>0.0</real>
+									<real>100</real>
 									<integer>4</integer>
 								</array>
 							</dict>
@@ -239,8 +61,8 @@
 								<string>Point</string>
 								<key>value</key>
 								<array>
-									<real>0.5</real>
 									<real>0.0</real>
+									<real>1</real>
 								</array>
 							</dict>
 							<dict>
@@ -250,10 +72,10 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>0.20000000298023224</real>
-									<real>0.20000000298023224</real>
+									<real>0.25074955821037292</real>
+									<real>0.16325834393501282</real>
 									<true/>
-									<integer>1</integer>
+									<integer>0</integer>
 								</array>
 							</dict>
 							<dict>
@@ -336,8 +158,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>50</real>
 							<real>0.0</real>
+							<real>100</real>
 							<integer>4</integer>
 						</array>
 					</dict>
@@ -348,9 +170,9 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>100</real>
-							<real>10</real>
-							<integer>1</integer>
+							<real>200</real>
+							<real>40</real>
+							<integer>5</integer>
 						</array>
 					</dict>
 					<dict>
@@ -360,8 +182,8 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
 							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -371,8 +193,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>0.92169028520584106</real>
+							<real>1.3475251197814941</real>
 							<true/>
 							<integer>0</integer>
 						</array>
@@ -406,6 +228,8 @@
 						<true/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -413,7 +237,7 @@
 		<key>displayName</key>
 		<string>CCLayer</string>
 		<key>jsController</key>
-		<string>L_mainScene</string>
+		<string>L_control</string>
 		<key>memberVarAssignmentName</key>
 		<string></string>
 		<key>memberVarAssignmentType</key>
@@ -508,6 +332,20 @@
 			<key>centeredOrigin</key>
 			<false/>
 			<key>ext</key>
+			<string>iphone</string>
+			<key>height</key>
+			<integer>568</integer>
+			<key>name</key>
+			<string>iPhone 5 Portrait</string>
+			<key>scale</key>
+			<real>1</real>
+			<key>width</key>
+			<integer>320</integer>
+		</dict>
+		<dict>
+			<key>centeredOrigin</key>
+			<false/>
+			<key>ext</key>
 			<string>ipad iphonehd</string>
 			<key>height</key>
 			<integer>1024</integer>
@@ -557,6 +395,6 @@
 		</dict>
 	</array>
 	<key>stageBorder</key>
-	<integer>0</integer>
+	<integer>3</integer>
 </dict>
 </plist>
